@@ -52,3 +52,4 @@ export const Job: CollectionConfig = {
     read: () => true,
   },
 }
+//
