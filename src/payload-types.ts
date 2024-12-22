@@ -124,10 +124,10 @@ export interface Media {
  */
 export interface Job {
   id: string;
-  'Year Range': string;
-  Position: string;
-  Description: string;
-  Tags?:
+  yearRange: string;
+  position: string;
+  description: string;
+  tags?:
     | (
         | 'JavaScript'
         | 'TypeScript'
@@ -253,10 +253,10 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "jobs_select".
  */
 export interface JobsSelect<T extends boolean = true> {
-  'Year Range'?: T;
-  Position?: T;
-  Description?: T;
-  Tags?: T;
+  yearRange?: T;
+  position?: T;
+  description?: T;
+  tags?: T;
   updatedAt?: T;
   createdAt?: T;
 }
