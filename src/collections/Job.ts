@@ -12,18 +12,21 @@ export const Job: CollectionConfig = {
       label: 'Year Range',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'position',
       label: 'Position',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
       label: 'Description',
       type: 'textarea',
       required: true,
+      localized: true,
     },
     {
       name: 'tags',
@@ -42,6 +45,7 @@ export const Job: CollectionConfig = {
         'Figma',
         'Code Review',
       ],
+      localized: true,
     },
   ],
   access: {
