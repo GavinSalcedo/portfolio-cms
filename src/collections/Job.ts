@@ -47,6 +47,12 @@ export const Job: CollectionConfig = {
       ],
       localized: true,
     },
+    {
+      name: 'link',
+      label: 'Link',
+      type: 'text',
+      localized: true,
+    },
   ],
   access: {
     read: () => true,
