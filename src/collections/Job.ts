@@ -8,22 +8,26 @@ export const Job: CollectionConfig = {
   },
   fields: [
     {
-      name: 'Year Range',
+      name: 'yearRange',
+      label: 'Year Range',
       type: 'text',
       required: true,
     },
     {
-      name: 'Position',
+      name: 'position',
+      label: 'Position',
       type: 'text',
       required: true,
     },
     {
-      name: 'Description',
+      name: 'description',
+      label: 'Description',
       type: 'textarea',
       required: true,
     },
     {
-      name: 'Tags',
+      name: 'tags',
+      label: 'Tags',
       type: 'select',
       hasMany: true,
       options: [
