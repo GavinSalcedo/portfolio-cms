@@ -15,6 +15,7 @@ export interface Config {
     users: User;
     media: Media;
     jobs: Job;
+    tags: Tag;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -24,6 +25,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     jobs: JobsSelect<false> | JobsSelect<true>;
+    tags: TagsSelect<false> | TagsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -127,20 +129,18 @@ export interface Job {
   yearRange: string;
   position: string;
   description: string;
-  tags?:
-    | (
-        | 'JavaScript'
-        | 'TypeScript'
-        | 'Storybook'
-        | 'Node.js'
-        | 'GraphQL'
-        | 'Jest'
-        | 'MongoDB'
-        | 'Styled Components'
-        | 'Figma'
-        | 'Code Review'
-      )[]
-    | null;
+  tags?: (string | Tag)[] | null;
+  link?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: string;
+  name: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -162,6 +162,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'jobs';
         value: string | Job;
+      } | null)
+    | ({
+        relationTo: 'tags';
+        value: string | Tag;
       } | null);
   globalSlug?: string | null;
   user:
@@ -257,6 +261,16 @@ export interface JobsSelect<T extends boolean = true> {
   position?: T;
   description?: T;
   tags?: T;
+  link?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags_select".
+ */
+export interface TagsSelect<T extends boolean = true> {
+  name?: T;
   updatedAt?: T;
   createdAt?: T;
 }
